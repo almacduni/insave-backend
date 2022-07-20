@@ -1,0 +1,64 @@
+на проде вручную подропал (каскадно) старые базы (относящиеся к feed разделу):
+
+comment
+comment_likes
+forusection
+news
+news_about
+news_comments
+news_key_points
+news_likes
+trading
+trading_comment
+trading_tweet
+tweet
+tweet_comments
+tweet_likes
+
+изменения таблиц: (41 -> 27)
+изменение sequences (25 -> 20)
+
+
+
+не стал трогать ликвидские базы ниже, "на всякий случай":
+
+databasechangelog
+databasechangeloglock
+
+
+
+лог действий:
+
+[2021-04-09 15:24:57] Connected
+d9farnuhn5517r.public> drop table if exists comment cascade
+[2021-04-09 15:24:58] [00000] drop cascades to 4 other objects
+[2021-04-09 15:24:58] completed in 142 ms
+d9farnuhn5517r.public> drop table if exists comments_likes cascade
+[2021-04-09 15:25:26] completed in 85 ms
+d9farnuhn5517r.public> drop table if exists forusection cascade
+[2021-04-09 15:25:39] completed in 81 ms
+d9farnuhn5517r.public> drop table if exists news cascade
+[2021-04-09 15:25:47] [00000] drop cascades to 5 other objects
+[2021-04-09 15:25:47] completed in 90 ms
+d9farnuhn5517r.public> drop table if exists news_about cascade
+[2021-04-09 15:25:54] completed in 83 ms
+d9farnuhn5517r.public> drop table if exists news_comments cascade
+[2021-04-09 15:26:25] completed in 76 ms
+d9farnuhn5517r.public> drop table if exists news_key_points cascade
+[2021-04-09 15:26:35] completed in 82 ms
+d9farnuhn5517r.public> drop table if exists news_likes cascade
+[2021-04-09 15:26:42] completed in 78 ms
+d9farnuhn5517r.public> drop table if exists trading cascade
+[2021-04-09 15:26:55] [00000] drop cascades to constraint fk8d7t7k56u5x2wnjgmvpuqq7ss on table trading_tweet
+[2021-04-09 15:26:55] completed in 83 ms
+d9farnuhn5517r.public> drop table if exists trading_comment cascade
+[2021-04-09 15:27:12] completed in 77 ms
+d9farnuhn5517r.public> drop table if exists trading_tweet cascade
+[2021-04-09 15:27:19] completed in 77 ms
+d9farnuhn5517r.public> drop table if exists tweet cascade
+[2021-04-09 15:27:28] [00000] drop cascades to 2 other objects
+[2021-04-09 15:27:28] completed in 89 ms
+d9farnuhn5517r.public> drop table if exists tweet_comments cascade
+[2021-04-09 15:27:35] completed in 82 ms
+d9farnuhn5517r.public> drop table if exists tweet_likes cascade
+[2021-04-09 15:27:42] completed in 77 ms

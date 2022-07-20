@@ -1,0 +1,1615 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1642891813375-1
+      author: artem (generated)
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: assets_pkey
+                  name: id
+                  type: BIGINT
+              - column:
+                  name: amount
+                  type: numeric(19, 2)
+              - column:
+                  name: average_price
+                  type: numeric(19, 2)
+              - column:
+                  name: company_name
+                  type: VARCHAR(255)
+              - column:
+                  name: logo_url
+                  type: VARCHAR(255)
+              - column:
+                  name: ticker
+                  type: VARCHAR(255)
+              - column:
+                  name: total_price
+                  type: numeric(19, 2)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: portfolio_id
+                  type: BIGINT
+            tableName: assets
+  - changeSet:
+      id: 1642891813375-2
+      author: artem (generated)
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: cryptowallet_accounts_pkey
+                  name: id
+                  type: BIGINT
+              - column:
+                  name: address
+                  type: VARCHAR(255)
+              - column:
+                  name: crypto_currency
+                  type: INTEGER
+              - column:
+                  name: index
+                  type: INTEGER
+              - column:
+                  name: ledger_account_id
+                  type: VARCHAR(255)
+              - column:
+                  name: wallet_id
+                  type: BIGINT
+            tableName: cryptowallet_accounts
+  - changeSet:
+      id: 1642891813375-3
+      author: artem (generated)
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: performance_pkey
+                  name: id
+                  type: BIGINT
+              - column:
+                  name: change
+                  type: numeric(19, 2)
+              - column:
+                  name: changes_percentage
+                  type: numeric(19, 2)
+              - column:
+                  name: history
+                  type: JSON
+              - column:
+                  name: value
+                  type: numeric(19, 2)
+              - column:
+                  name: portfolio_id
+                  type: BIGINT
+            tableName: performance
+  - changeSet:
+      id: 1642891813375-4
+      author: artem (generated)
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: personal_data_pkey
+                  name: id
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: city
+                  type: VARCHAR(255)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: date
+                  type: VARCHAR(255)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: document_type
+                  type: VARCHAR(255)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: first_name
+                  type: VARCHAR(255)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: last_name
+                  type: VARCHAR(255)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: post_code
+                  type: VARCHAR(255)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: street_address
+                  type: VARCHAR(255)
+              - column:
+                  name: tickers_search_history
+                  type: VARCHAR(255)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: user_id
+                  type: BIGINT
+            tableName: personal_data
+  - changeSet:
+      id: 1642891813375-5
+      author: artem (generated)
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: playlist_pkey
+                  name: id
+                  type: BIGINT
+              - column:
+                  name: description
+                  type: VARCHAR(255)
+              - column:
+                  name: imageurl
+                  type: VARCHAR(255)
+              - column:
+                  name: openings
+                  type: BIGINT
+              - column:
+                  name: tickers_number
+                  type: INTEGER
+              - column:
+                  name: title
+                  type: VARCHAR(255)
+              - column:
+                  name: picture_uuid
+                  type: VARCHAR(255)
+              - column:
+                  name: user_id
+                  type: BIGINT
+            tableName: playlist
+  - changeSet:
+      id: 1642891813375-6
+      author: artem (generated)
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: playlist_categories_pkey
+                  name: id
+                  type: BIGINT
+              - column:
+                  name: category
+                  type: VARCHAR(255)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: serial_number
+                  type: INTEGER
+            tableName: playlist_categories
+  - changeSet:
+      id: 1642891813375-7
+      author: artem (generated)
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: portfolios_pkey
+                  name: id
+                  type: BIGINT
+              - column:
+                  name: performance_id
+                  type: BIGINT
+              - column:
+                  name: user_user_id
+                  type: BIGINT
+            tableName: portfolios
+  - changeSet:
+      id: 1642891813375-8
+      author: artem (generated)
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: post_comment_likes_pkey
+                  name: like_id
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: comment_id
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: user_id
+                  type: BIGINT
+            tableName: post_comment_likes
+  - changeSet:
+      id: 1642891813375-9
+      author: artem (generated)
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: post_comments_pkey
+                  name: comment_id
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: date
+                  type: TIMESTAMP WITHOUT TIME ZONE
+              - column:
+                  name: gif_url
+                  type: VARCHAR(255)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: is_reply
+                  type: BOOLEAN
+              - column:
+                  name: reply_to
+                  type: VARCHAR(255)
+              - column:
+                  name: text
+                  type: VARCHAR(140)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: post_id
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: user_id
+                  type: BIGINT
+            tableName: post_comments
+  - changeSet:
+      id: 1642891813375-10
+      author: artem (generated)
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: post_hashtags_pkey
+                  name: hashtag_id
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: name
+                  type: VARCHAR(840)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: post_id
+                  type: BIGINT
+            tableName: post_hashtags
+  - changeSet:
+      id: 1642891813375-11
+      author: artem (generated)
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: post_likes_pkey
+                  name: like_id
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: post_id
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: user_id
+                  type: BIGINT
+            tableName: post_likes
+  - changeSet:
+      id: 1642891813375-12
+      author: artem (generated)
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: posts_pkey
+                  name: post_id
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: date
+                  type: TIMESTAMP WITHOUT TIME ZONE
+              - column:
+                  name: gif_url
+                  type: VARCHAR(255)
+              - column:
+                  name: poll
+                  type: JSON
+              - column:
+                  name: text
+                  type: VARCHAR(840)
+              - column:
+                  name: video_url
+                  type: VARCHAR(255)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: user_id
+                  type: BIGINT
+            tableName: posts
+  - changeSet:
+      id: 1642891813375-13
+      author: artem (generated)
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: referral_transfers_pkey
+                  name: id
+                  type: BIGINT
+              - column:
+                  name: amount
+                  type: numeric(19, 2)
+              - column:
+                  name: cause
+                  type: VARCHAR(255)
+              - column:
+                  name: date
+                  type: VARCHAR(255)
+              - column:
+                  name: reference
+                  type: VARCHAR(255)
+              - column:
+                  name: user_id
+                  type: BIGINT
+            tableName: referral_transfers
+  - changeSet:
+      id: 1642891813375-14
+      author: artem (generated)
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: report_pkey
+                  name: id
+                  type: BIGINT
+              - column:
+                  name: description
+                  type: VARCHAR(255)
+              - column:
+                  name: post_comment_id
+                  type: BIGINT
+              - column:
+                  name: post_id
+                  type: BIGINT
+              - column:
+                  name: report_date
+                  type: BIGINT
+              - column:
+                  name: report_type
+                  type: INTEGER
+              - column:
+                  name: reported_object
+                  type: INTEGER
+              - column:
+                  name: user_email
+                  type: VARCHAR(255)
+              - column:
+                  name: user_id
+                  type: BIGINT
+              - column:
+                  name: username
+                  type: VARCHAR(255)
+            tableName: report
+  - changeSet:
+      id: 1642891813375-15
+      author: artem (generated)
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: roles_pkey
+                  name: role_id
+                  type: BIGINT
+              - column:
+                  name: name
+                  type: VARCHAR(255)
+            tableName: roles
+  - changeSet:
+      id: 1642891813375-16
+      author: artem (generated)
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: ticker_status_pkey
+                  name: id
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  defaultValueBoolean: false
+                  name: market_data_supported
+                  type: BOOLEAN
+              - column:
+                  constraints:
+                    nullable: false
+                  name: ticker
+                  type: VARCHAR(255)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: trading_status
+                  type: VARCHAR(255)
+            tableName: ticker_status
+  - changeSet:
+      id: 1642891813375-17
+      author: artem (generated)
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: users_pkey
+                  name: user_id
+                  type: BIGINT
+              - column:
+                  name: account_status
+                  type: VARCHAR(255)
+              - column:
+                  name: avatar_link
+                  type: VARCHAR(255)
+              - column:
+                  name: bio
+                  type: VARCHAR(255)
+              - column:
+                  name: day_created
+                  type: TIMESTAMP WITHOUT TIME ZONE
+              - column:
+                  name: email
+                  type: VARCHAR(255)
+              - column:
+                  name: expiration_days
+                  type: INTEGER
+              - column:
+                  name: parent_id
+                  type: BIGINT
+              - column:
+                  name: password
+                  type: VARCHAR(255)
+              - column:
+                  name: password_on_mobile_app
+                  type: VARCHAR(255)
+              - column:
+                  name: phone
+                  type: VARCHAR(255)
+              - column:
+                  name: referral_link
+                  type: VARCHAR(255)
+              - column:
+                  name: username
+                  type: VARCHAR(255)
+              - column:
+                  name: verified
+                  type: VARCHAR(255)
+              - column:
+                  name: portfolio_id
+                  type: BIGINT
+              - column:
+                  name: wallet_id
+                  type: BIGINT
+            tableName: users
+  - changeSet:
+      id: 1642891813375-18
+      author: artem (generated)
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: wallets_pkey
+                  name: id
+                  type: BIGINT
+              - column:
+                  name: amount
+                  type: numeric(19, 2)
+              - column:
+                  name: type
+                  type: VARCHAR(255)
+              - column:
+                  name: customer_id
+                  type: VARCHAR(255)
+              - column:
+                  name: user_user_id
+                  type: BIGINT
+            tableName: wallets
+  - changeSet:
+      id: 1642891813375-19
+      author: artem (generated)
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: watchlist_item_description_pkey
+                  name: id
+                  type: BIGINT
+              - column:
+                  name: description
+                  type: VARCHAR(255)
+              - column:
+                  name: logo
+                  type: VARCHAR(255)
+              - column:
+                  name: ticker
+                  type: VARCHAR(255)
+            tableName: watchlist_item_description
+  - changeSet:
+      id: 1642891813375-20
+      author: artem (generated)
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: watchlists_pkey
+                  name: watchlist_id
+                  type: BIGINT
+              - column:
+                  name: tickers
+                  type: JSON
+              - column:
+                  constraints:
+                    nullable: false
+                  name: user_id
+                  type: BIGINT
+            tableName: watchlists
+  - changeSet:
+      id: 1642891813375-21
+      author: artem (generated)
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                  name: personal_data_id
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: pictures_id
+                  type: VARCHAR(255)
+            tableName: personal_data_pictures
+  - changeSet:
+      id: 1642891813375-22
+      author: artem (generated)
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: tickers_pkey
+                  name: ticker_id
+                  type: BIGINT
+              - column:
+                  name: amg
+                  type: FLOAT8
+              - column:
+                  name: analyst_recommendation
+                  type: FLOAT8
+              - column:
+                  name: company
+                  type: VARCHAR(255)
+              - column:
+                  name: market_capitalization
+                  type: VARCHAR(255)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: name
+                  type: VARCHAR(255)
+            tableName: tickers
+  - changeSet:
+      id: 1642891813375-23
+      author: artem (generated)
+      changes:
+        - addUniqueConstraint:
+            columnNames: user_id
+            constraintName: uk_3lg58y8rawfxw06p5ujo92l96
+            tableName: personal_data
+  - changeSet:
+      id: 1642891813375-24
+      author: artem (generated)
+      changes:
+        - addUniqueConstraint:
+            columnNames: ticker
+            constraintName: uk_jc7andgcu80nxffwmxveo6rsy
+            tableName: ticker_status
+  - changeSet:
+      id: 1642891813375-25
+      author: artem (generated)
+      changes:
+        - addUniqueConstraint:
+            columnNames: email
+            constraintName: uk6dotkott2kjsp8vw4d0m25fb7
+            tableName: users
+  - changeSet:
+      id: 1642891813375-26
+      author: artem (generated)
+      changes:
+        - addUniqueConstraint:
+            columnNames: username
+            constraintName: uk_r43af9ap4edm43mmtq01oddj6
+            tableName: users
+  - changeSet:
+      id: 1642891813375-27
+      author: artem (generated)
+      changes:
+        - addUniqueConstraint:
+            columnNames: pictures_id
+            constraintName: uk_19t4ildfo6kygfdgdrfls7yoj
+            tableName: personal_data_pictures
+  - changeSet:
+      id: 1642891813375-28
+      author: artem (generated)
+      changes:
+        - addUniqueConstraint:
+            columnNames: name
+            constraintName: uk_7s3jysx0aesj8q8l5u3ihfek
+            tableName: tickers
+  - changeSet:
+      id: 1642891813375-29
+      author: artem (generated)
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: password_restore_links_pkey
+                  name: id
+                  type: UUID
+              - column:
+                  name: user_id
+                  type: BIGINT
+            tableName: password_restore_links
+  - changeSet:
+      id: 1642891813375-30
+      author: artem (generated)
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: pictures_pkey
+                  name: id
+                  type: VARCHAR(255)
+              - column:
+                  name: picture
+                  type: TEXT
+            tableName: pictures
+  - changeSet:
+      id: 1642891813375-31
+      author: artem (generated)
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: play_list_likes_pkey
+                  name: play_list_id
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: play_list_likes_pkey
+                  name: user_id
+                  type: BIGINT
+            tableName: play_list_likes
+  - changeSet:
+      id: 1642891813375-32
+      author: artem (generated)
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                  name: category_id
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: playlist_id
+                  type: BIGINT
+            tableName: playlist_category
+  - changeSet:
+      id: 1642891813375-33
+      author: artem (generated)
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                  name: playlist_id
+                  type: BIGINT
+              - column:
+                  name: day
+                  type: date
+              - column:
+                  name: taps_count
+                  type: BIGINT
+            tableName: playlist_daily_statistic
+  - changeSet:
+      id: 1642891813375-34
+      author: artem (generated)
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                  name: playlist_id
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: ticker_id
+                  type: BIGINT
+            tableName: playlist_ticker
+  - changeSet:
+      id: 1642891813375-35
+      author: artem (generated)
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: playlist_trending_points_pkey
+                  name: trending_id
+                  type: BIGINT
+              - column:
+                  name: top_points
+                  type: BIGINT
+              - column:
+                  name: trending_points
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: playlist_id
+                  type: BIGINT
+            tableName: playlist_trending_points
+  - changeSet:
+      id: 1642891813375-36
+      author: artem (generated)
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                  name: post_id
+                  type: BIGINT
+              - column:
+                  name: comments_count
+                  type: INTEGER
+              - column:
+                  name: day
+                  type: date
+              - column:
+                  name: likes_count
+                  type: INTEGER
+              - column:
+                  name: openings
+                  type: INTEGER
+            tableName: post_daily_statistic
+  - changeSet:
+      id: 1642891813375-37
+      author: artem (generated)
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: post_foryou_trending_pkey
+                  name: trending_id
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: points
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: post_id
+                  type: BIGINT
+            tableName: post_foryou_trending
+  - changeSet:
+      id: 1642891813375-38
+      author: artem (generated)
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                  name: post_post_id
+                  type: BIGINT
+              - column:
+                  name: pictures
+                  type: VARCHAR(255)
+            tableName: post_pictures
+  - changeSet:
+      id: 1642891813375-39
+      author: artem (generated)
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: post_trendings_pkey
+                  name: trending_id
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: points
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: post_id
+                  type: BIGINT
+            tableName: post_trendings
+  - changeSet:
+      id: 1642891813375-40
+      author: artem (generated)
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: users_roles_pkey
+                  name: user_id
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: users_roles_pkey
+                  name: role_id
+                  type: BIGINT
+            tableName: users_roles
+  - changeSet:
+      id: 1642891813375-41
+      author: artem (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: user_user_id
+            baseTableName: portfolios
+            constraintName: fk2l9dwrorgbir7cqitinflvd2q
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: user_id
+            referencedTableName: users
+            validate: true
+  - changeSet:
+      id: 1642891813375-42
+      author: artem (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: user_id
+            baseTableName: users_roles
+            constraintName: fk2o0jvgh89lemvvo17cbqvdxaa
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: user_id
+            referencedTableName: users
+            validate: true
+  - changeSet:
+      id: 1642891813375-43
+      author: artem (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: post_id
+            baseTableName: post_foryou_trending
+            constraintName: fk2wyy2dokjwy1ou3k3dwsis9ml
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: post_id
+            referencedTableName: posts
+            validate: true
+  - changeSet:
+      id: 1642891813375-44
+      author: artem (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: portfolio_id
+            baseTableName: assets
+            constraintName: fk3cw3fn7tl86xb1ihalragbgle
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: portfolios
+            validate: true
+  - changeSet:
+      id: 1642891813375-45
+      author: artem (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: playlist_id
+            baseTableName: playlist_trending_points
+            constraintName: fk3n175xd7row24s46uux7jqe6w
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: playlist
+            validate: true
+  - changeSet:
+      id: 1642891813375-46
+      author: artem (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: user_user_id
+            baseTableName: wallets
+            constraintName: fk4conf8f30sdxi93mnv8bnadvi
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: user_id
+            referencedTableName: users
+            validate: true
+  - changeSet:
+      id: 1642891813375-47
+      author: artem (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: personal_data_id
+            baseTableName: personal_data_pictures
+            constraintName: fk572felpyx9qt2lr8u6ftxco8s
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: personal_data
+            validate: true
+  - changeSet:
+      id: 1642891813375-48
+      author: artem (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: user_id
+            baseTableName: posts
+            constraintName: fk5lidm6cqbc7u4xhqpxm898qme
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: user_id
+            referencedTableName: users
+            validate: true
+  - changeSet:
+      id: 1642891813375-49
+      author: artem (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: play_list_id
+            baseTableName: play_list_likes
+            constraintName: fk6n3aanu85tyrhj5decfav8tkl
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: playlist
+            validate: true
+  - changeSet:
+      id: 1642891813375-50
+      author: artem (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: performance_id
+            baseTableName: portfolios
+            constraintName: fk79etpkjl7xhvrdlv7tovv9gph
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: performance
+            validate: true
+  - changeSet:
+      id: 1642891813375-51
+      author: artem (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: post_id
+            baseTableName: post_likes
+            constraintName: fka5wxsgl4doibhbed9gm7ikie2
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: post_id
+            referencedTableName: posts
+            validate: true
+  - changeSet:
+      id: 1642891813375-52
+      author: artem (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: post_id
+            baseTableName: post_comments
+            constraintName: fkaawaqxjs3br8dw5v90w7uu514
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: post_id
+            referencedTableName: posts
+            validate: true
+  - changeSet:
+      id: 1642891813375-53
+      author: artem (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: pictures_id
+            baseTableName: personal_data_pictures
+            constraintName: fkc21kt6y9xja16oy0rb7ktbpu4
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: pictures
+            validate: true
+  - changeSet:
+      id: 1642891813375-54
+      author: artem (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: wallet_id
+            baseTableName: users
+            constraintName: fkcf6cgic6n7ek155uj81npsbcm
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: wallets
+            validate: true
+  - changeSet:
+      id: 1642891813375-55
+      author: artem (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: post_id
+            baseTableName: post_daily_statistic
+            constraintName: fkgmho7dydbik05lxayq8cpyi62
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: post_id
+            referencedTableName: posts
+            validate: true
+  - changeSet:
+      id: 1642891813375-56
+      author: artem (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: category_id
+            baseTableName: playlist_category
+            constraintName: fkgtags45y52qoy0jmpalkw1sxc
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: playlist_categories
+            validate: true
+  - changeSet:
+      id: 1642891813375-57
+      author: artem (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: wallet_id
+            baseTableName: cryptowallet_accounts
+            constraintName: fkh31guk2j5txs4epgihthok7tx
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: wallets
+            validate: true
+  - changeSet:
+      id: 1642891813375-58
+      author: artem (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: post_post_id
+            baseTableName: post_pictures
+            constraintName: fkhxldynt8v3xf0e6u0afmo92ml
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: post_id
+            referencedTableName: posts
+            validate: true
+  - changeSet:
+      id: 1642891813375-59
+      author: artem (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: user_id
+            baseTableName: play_list_likes
+            constraintName: fkiqodis4m0kak3hudkeaoyiwoo
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: user_id
+            referencedTableName: users
+            validate: true
+  - changeSet:
+      id: 1642891813375-60
+      author: artem (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: role_id
+            baseTableName: users_roles
+            constraintName: fkj6m8fwv7oqv74fcehir1a9ffy
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: role_id
+            referencedTableName: roles
+            validate: true
+  - changeSet:
+      id: 1642891813375-61
+      author: artem (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: user_id
+            baseTableName: playlist
+            constraintName: fkj8q80g2puy49wsp49p3taqllv
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: user_id
+            referencedTableName: users
+            validate: true
+  - changeSet:
+      id: 1642891813375-62
+      author: artem (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: playlist_id
+            baseTableName: playlist_ticker
+            constraintName: fkjkxf0en1eoapposqxmqyckcux
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: playlist
+            validate: true
+  - changeSet:
+      id: 1642891813375-63
+      author: artem (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: post_id
+            baseTableName: post_trendings
+            constraintName: fkjrqjj9and4m0plxrtq58gbfn2
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: post_id
+            referencedTableName: posts
+            validate: true
+  - changeSet:
+      id: 1642891813375-64
+      author: artem (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: user_id
+            baseTableName: post_likes
+            constraintName: fkkgau5n0nlewg6o9lr4yibqgxj
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: user_id
+            referencedTableName: users
+            validate: true
+  - changeSet:
+      id: 1642891813375-65
+      author: artem (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: user_id
+            baseTableName: personal_data
+            constraintName: fkku8qp4a2xp17yobsg9gxmws1t
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: user_id
+            referencedTableName: users
+            validate: true
+  - changeSet:
+      id: 1642891813375-66
+      author: artem (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: portfolio_id
+            baseTableName: performance
+            constraintName: fkkvemylbsopc9obd9msnbyeg18
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: portfolios
+            validate: true
+  - changeSet:
+      id: 1642891813375-67
+      author: artem (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: picture_uuid
+            baseTableName: playlist
+            constraintName: fkl7q2v6tekr45frbd9rax6oi
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: pictures
+            validate: true
+  - changeSet:
+      id: 1642891813375-68
+      author: artem (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: comment_id
+            baseTableName: post_comment_likes
+            constraintName: fkolqfg69iiq4kvvhg8pyp9wtwm
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: comment_id
+            referencedTableName: post_comments
+            validate: true
+  - changeSet:
+      id: 1642891813375-69
+      author: artem (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: portfolio_id
+            baseTableName: users
+            constraintName: fkonfi0p6h3fkvfq79otx2p5cc9
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: portfolios
+            validate: true
+  - changeSet:
+      id: 1642891813375-70
+      author: artem (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: ticker_id
+            baseTableName: playlist_ticker
+            constraintName: fkpyb9ptp0bpa3mk3jtbah1iyld
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: ticker_id
+            referencedTableName: tickers
+            validate: true
+  - changeSet:
+      id: 1642891813375-71
+      author: artem (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: user_id
+            baseTableName: post_comment_likes
+            constraintName: fkqhck000tgwtwukoao6chny5s5
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: user_id
+            referencedTableName: users
+            validate: true
+  - changeSet:
+      id: 1642891813375-72
+      author: artem (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: post_id
+            baseTableName: post_hashtags
+            constraintName: fkrrlq793bvaswhomm900i71ac5
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: post_id
+            referencedTableName: posts
+            validate: true
+  - changeSet:
+      id: 1642891813375-73
+      author: artem (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: playlist_id
+            baseTableName: playlist_daily_statistic
+            constraintName: fkrtvadendi1c7qvi7goql64j2d
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: playlist
+            validate: true
+  - changeSet:
+      id: 1642891813375-74
+      author: artem (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: user_id
+            baseTableName: watchlists
+            constraintName: fksjis83bxhryaemq9m6gv5r0pb
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: user_id
+            referencedTableName: users
+            validate: true
+  - changeSet:
+      id: 1642891813375-75
+      author: artem (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: user_id
+            baseTableName: post_comments
+            constraintName: fksnxoecngu89u3fh4wdrgf0f2g
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: user_id
+            referencedTableName: users
+            validate: true
+  - changeSet:
+      id: 1642891813375-76
+      author: artem (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: playlist_id
+            baseTableName: playlist_category
+            constraintName: fktopixssx060kw5pvn4uhhakvg
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: playlist
+            validate: true
+  - changeSet:
+      id: 23.01.2022.15.25
+      author: artem (generated)
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  name: test_id
+                  type: BIGINT
+            tableName: test
+  - changeSet:
+      id: 30.01.2022.03.05
+      author: artem
+      changes:
+        - insert:
+            catalogName: roles
+            columns:
+              - column:
+                  name: role_id
+                  value: 1
+              - column:
+                  name: name
+                  value: 'ROLE_USER'
+            schemaName: public
+            tableName: roles
+        - insert:
+            catalogName: roles
+            columns:
+              - column:
+                  name: role_id
+                  value: 2
+              - column:
+                  name: name
+                  value: 'ROLE_ADMIN'
+            schemaName: public
+            tableName: roles
+        - insert:
+            catalogName: roles
+            columns:
+              - column:
+                  name: role_id
+                  value: 3
+              - column:
+                  name: name
+                  value: 'ROLE_BANNED'
+            schemaName: public
+            tableName: roles
+        - insert:
+            catalogName: roles
+            columns:
+              - column:
+                  name: role_id
+                  value: 4
+              - column:
+                  name: name
+                  value: 'ROLE_SUPPORT'
+            schemaName: public
+            tableName: roles
+        - insert:
+            catalogName: roles
+            columns:
+              - column:
+                  name: role_id
+                  value: 5
+              - column:
+                  name: name
+                  value: 'ROLE_SOCIAL_BANNED'
+            schemaName: public
+            tableName: roles
+        - insert:
+            catalogName: roles
+            columns:
+              - column:
+                  name: role_id
+                  value: 6
+              - column:
+                  name: name
+                  value: 'ROLE_GUEST'
+            schemaName: public
+            tableName: roles
+        - insert:
+            catalogName: roles
+            columns:
+              - column:
+                  name: role_id
+                  value: 7
+              - column:
+                  name: name
+                  value: 'ROLE_BLACKLIST'
+            schemaName: public
+            tableName: roles

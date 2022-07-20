@@ -1,0 +1,86 @@
+server:
+  port: ${PORT:5020}
+  tomcat:
+    uri-encoding: UTF-8
+
+mail:
+  debug: true
+sentry:
+  traces-sample-rate: 0.3
+
+spring:
+  mail:
+    username: notifications@insave.io
+    port: 465
+    host: mail.privateemail.com
+    protocol: smtps
+    password: Mm1470682390
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        jdbc:
+          lob:
+            non_contextual_creation: true
+    show-sql: false
+    open-in-view: true
+
+  # LOCAL DB HERE! ---------------------------------------------------------
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    initialization-mode: never
+    password: ${DATASOURCE_PASSWORD}
+    username: ${DATASOURCE_USERNAME}
+    tomcat:
+      max-active: 15
+    url: ${DATASOURCE_URL_POOL}
+    type: org.springframework.jdbc.datasource.SimpleDriverDataSource
+  session:
+    store-type: jdbc
+  liquibase:
+    enabled: true
+    change-log: db/db.changelog-master.yaml
+
+insave:
+  user-management:
+    jwt:
+      jwtSecret: RjeeySecretKey
+      jwtRefreshTokenExpirationMs: ${JWT_REFRESH_TOKEN_EXPIRATION_MS:86400000}
+      jwtTokenExpirationMs: ${JWT_TOKEN_EXPIRATION_MS:21600000}
+  env:
+    url: ${INSAVE_URL:http://insave-x3zcl.ondigitalocean.app}
+  integration:
+    media:
+      gif:
+        response:
+          limit: ${GIF_LIMIT:20}
+        api_key: ${GIF_API_KEY}
+    finances:
+      tatum:
+        api_key: ${TATUM_API_KEY}
+        account_id:
+          for_sending_tokens: ${TATUM_ACCOUNT_ID_FOR_SENDING_TOKENS}
+        bitcoin:
+          wallet:
+            xpub: ${TATUM_BITCOIN_WALLET_XPUB}
+            signatureId: ${TATUM_BITCOIN_SIGNATURE_ID}
+        ethereum:
+          wallet:
+            signatureId: ${TATUM_ETHEREUM_SIGNATURE_ID}
+            xpub: ${TATUM_ETHEREUM_WALLET_XPUB}
+      polygon:
+        api_key: ${POLYGON_API_KEY}
+      financial_modelling:
+        url: https://financialmodelingprep.com/api/v3/
+        api_key: ${FINANCIAL_MODELLING_API_KEY}
+      coinmarketcap:
+        api_key: ${COINMARKETCAP_API_KEY}
+      watchlist:
+        default:
+          tickers: AAPL,TSLA,NFLX,BTCUSD,ETHUSD,AMZN,GOOGL,FB,MSFT,NVDA,JNJ,BABA,BRK-B
+        ticker:
+          limit: 20
+logging:
+  config: src/main/resources/dev/log4j2-dev.xml

@@ -1,0 +1,27 @@
+<!--Everything about appenders here https://logging.apache.org/log4j/2.x/manual/appenders.html-->
+
+<Configuration packages="org.apache.logging.log4j.core,io.sentry.log4j2">
+    <Properties>
+        <Property name="basePath">../</Property>
+        <Property name="dsn">https://a77da4a795ae4acdbeef090455dab1b5@o1118488.ingest.sentry.io/6174338/</Property>
+    </Properties>
+
+    <Appenders>
+        <!-- Console appender configuration -->
+        <Console name="console" target="SYSTEM_OUT">
+            <PatternLayout
+                    pattern="%d{yyyy-MM-dd HH:mm:ss} %-5p %c{1}:%L - %m%n" />
+        </Console>
+        <Sentry name="Sentry"
+                dsn="${dsn}"
+                minimumBreadcrumbLevel="DEBUG"
+                minimumEventLevel="INFO"/>
+    </Appenders>
+    <Loggers>
+        <Root level="info">
+            <AppenderRef ref="console" />
+            <AppenderRef ref="errorLogsFileAppender" />
+            <AppenderRef ref="Sentry" />
+        </Root>
+    </Loggers>
+</Configuration>
